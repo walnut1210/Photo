@@ -1,0 +1,16 @@
+name = "photo-timelapse"
+main = "src_worker.js"
+compatibility_date = "2026-11-23"
+
+[assets]
+directory = "./public"
+binding = "ASSETS"
+run_worker_first = ["/api/*"]
+
+[[durable_objects.bindings]]
+name = "TIMELAPSE_SESSIONS"
+class_name = "TimelapseSession"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["TimelapseSession"]
